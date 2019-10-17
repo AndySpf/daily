@@ -1,0 +1,10 @@
+{
+  "log_config": {
+    "log_dir": "/Users/qijing.fqj/go/src/uselog/logs",
+"log_level": "debug",
+"compress_file_count": 5,
+"log_file_count": 3,
+"log_file_unit": "KB",
+"log_file_size": 3
+}
+}
