@@ -3,7 +3,7 @@ package binary_search
 import (
 	"fmt"
 	"testing"
-	"uselog/tree"
+	"daily/tree"
 )
 
 func TestBinarySearchNode_Delete(t *testing.T) {

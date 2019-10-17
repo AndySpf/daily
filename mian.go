@@ -6,9 +6,9 @@ import (
 	"os"
 	"path"
 	"time"
-	"uselog/hooks"
+	"daily/hooks"
 
-	"uselog/g"
+	"daily/g"
 
 	log "github.com/sirupsen/logrus"
 )

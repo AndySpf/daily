@@ -3,7 +3,7 @@ package binary_search
 import (
 	"errors"
 	"fmt"
-	"uselog/tree"
+	"daily/tree"
 )
 
 type binarySearchNode struct {

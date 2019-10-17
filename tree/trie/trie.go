@@ -3,7 +3,7 @@ package trie
 import (
 	"fmt"
 	"strings"
-	"uselog/tree"
+	"daily/tree"
 )
 
 /*

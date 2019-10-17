@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 	"sync"
-	"uselog/g"
-	"uselog/utils"
+	"daily/g"
+	"daily/utils"
 
 	log "github.com/sirupsen/logrus"
 )
