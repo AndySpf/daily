@@ -32,10 +32,10 @@ func Init() {
 	}
 }
 
-func (t *TrieNode) Insert(value interface{}) error {
+func (t *TrieNode) Insert(value interface{}) (bool, error) {
 	linkChild(root, value.(string))
 	root.compressTrie()
-	return nil
+	return true, nil
 }
 func (t *TrieNode) Delete(value interface{}) error {
 	// 字典树的目的主要是为了字符串查询效率，一般不会有删除操作

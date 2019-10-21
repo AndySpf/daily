@@ -6,7 +6,7 @@ import (
 	"daily/tree"
 )
 
-func TestBinarySearchNode_Delete(t *testing.T) {
+func TestBinarySearchNode(t *testing.T) {
 	root := NewBinarySearchTree()
 	root.Insert(3)
 	root.Insert(1)
@@ -15,6 +15,9 @@ func TestBinarySearchNode_Delete(t *testing.T) {
 	root.Insert(2)
 	root.Insert(6)
 	root.Insert(0)
+	root.Insert(8)
+
+	root.Draw()
 
 	fmt.Printf("树中序遍历结果为:")
 	root.Print()
@@ -49,11 +52,11 @@ func TestGenArr(t *testing.T) {
 					LeftNode:  nil,
 					RightNode: nil,
 					Value:     &val[0],
-					tp:        "",
+					Tp:        "",
 				},
 				RightNode: nil,
 				Value:     &val[1],
-				tp:        "",
+				Tp:        "",
 			},
 			RightNode: &binarySearchNode{
 				LeftNode: nil,
@@ -61,36 +64,25 @@ func TestGenArr(t *testing.T) {
 					LeftNode:  nil,
 					RightNode: nil,
 					Value:     &val[4],
-					tp:        "",
+					Tp:        "",
 				},
 				Value: &val[3],
-				tp:    "",
+				Tp:    "",
 			},
 			Value: &val[2],
-			tp:    "",
+			Tp:    "",
 		},
 		RightNode: &binarySearchNode{
 			LeftNode:  nil,
 			RightNode: nil,
 			Value:     &val[6],
-			tp:        "",
+			Tp:        "",
 		},
 		Value: &val[5],
-		tp:    "root",
+		Tp:    "root",
 	}
 	s := &sequential{}
 	s.genArr(b)
 	fmt.Println(s.arr)
 }
 
-// 数组传值，切片不扩容传引用，扩容则传值（因为底层指向数组的指针变了）
-func TestSliceTransmit(t *testing.T) {
-	i := [3]int{1, 2, 3}
-	testS(i)
-	fmt.Println(i)
-}
-
-func testS(i [3]int) {
-	//i = append(i, 4, 5, 6, 7)
-	i[1] = 10
-}

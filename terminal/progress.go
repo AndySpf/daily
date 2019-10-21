@@ -18,15 +18,18 @@ func renderbar(count, total int) {
 
 func main() {
 	total := 50
+	fmt.Print("\x1b7")   // 保存光标位置 保存光标和Attrs <ESC> 7
+
 	for i := 1; i <= total; i++ {
 		//<ESC>表示ASCII“转义”字符，0x1B
-		fmt.Print("\x1b7")   // 保存光标位置 保存光标和Attrs <ESC> 7
-		fmt.Print("\x1b[2k") // 清空当前行的内容 擦除线<ESC> [2K
+		//fmt.Print("\x1b[2k") // 清空当前行的内容 擦除线<ESC> [2K
+		fmt.Print("\x1b[K") // 清空当前行的内容 擦除线<ESC> [2K
 		renderbar(i, total)
-		time.Sleep(200 * time.Millisecond)
+		time.Sleep(100 * time.Millisecond)
 		fmt.Print("\x1b8") // 恢复光标位置 恢复光标和Attrs <ESC> 8
 	}
-	fmt.Print("\x1b[1B")
+
+	fmt.Print("\x1b[3A")
 	time.Sleep(time.Second * 1)
 
 	fmt.Print("Done!")

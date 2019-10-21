@@ -19,8 +19,22 @@ func TestIndex2Col(t *testing.T) {
 	fmt.Println(Index2Col(0))
 }
 
+type ss struct {
+	Name *string
+}
+
 func TestT(t *testing.T) {
-	fmt.Println(T())
+	//fmt.Println(T())
+	n1 := "zs"
+	n2 := "ls"
+	a := &ss{Name: &n1}
+	b := &ss{Name: &n2}
+	fmt.Println(a.Name)
+	fmt.Println(b.Name)
+	a.Name = b.Name
+	fmt.Println(a.Name)
+	fmt.Println(b.Name)
+	fmt.Println(*a.Name)
 }
 
 func TestTs(t *testing.T) {
