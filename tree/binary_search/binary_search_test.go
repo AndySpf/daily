@@ -7,16 +7,19 @@ import (
 )
 
 func TestBinarySearchNode(t *testing.T) {
+	data := []int{12, 1, 9, 2, 0}
 	root := NewBinarySearchTree()
-	root.Insert(3)
-	root.Insert(1)
-	root.Insert(5)
-	root.Insert(4)
-	root.Insert(2)
-	root.Insert(6)
-	root.Insert(0)
-	root.Insert(8)
-
+	//root.Insert(3)
+	//root.Insert(1)
+	//root.Insert(5)
+	//root.Insert(4)
+	//root.Insert(2)
+	//root.Insert(6)
+	//root.Insert(0)
+	//root.Insert(8)
+	for _, v := range data{
+		root.Insert(v)
+	}
 	root.Draw()
 
 	fmt.Printf("树中序遍历结果为:")

@@ -232,7 +232,7 @@ func (b *binarySearchNode) Draw() {
 	if b.Tp == "root"{
 		pos := b.Height * interval
 		fmt.Printf("\x1b[%dC", pos)
-		fmt.Println(*b.Value)
+		fmt.Println(*b.Value, "(", b.Height, ")")
 
 		if b.LeftNode != nil{
 			drawList = append(drawList, drawInfo{parentPos: pos, currentNode: b.LeftNode, direction:1})
@@ -251,14 +251,14 @@ func (b *binarySearchNode) Draw() {
 				// 光标移动到父节点位置，然后向左移动两列
 				fmt.Printf("\x1b[%dC", n.parentPos)
 				fmt.Printf("\x1b[%dD", n.currentNode.Height+ 1)
-				fmt.Print(*n.currentNode.Value)
+				fmt.Print(*n.currentNode.Value, "(", n.currentNode.Height, ")")
 				fmt.Print("\x1b[u") // 恢复光标位置 恢复光标和Attrs <ESC> 8
 			}else{
 				pos += interval
 				// 光标移动到父节点位置，然后向右移动两列
 				fmt.Printf("\x1b[%dC", n.parentPos)
 				fmt.Printf("\x1b[%dC", n.currentNode.Height+ 1)
-				fmt.Print(*n.currentNode.Value)
+				fmt.Print(*n.currentNode.Value, "(", n.currentNode.Height, ")")
 				fmt.Print("\x1b[u") // 恢复光标位置 恢复光标和Attrs <ESC> 8
 			}
 
