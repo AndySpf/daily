@@ -12,7 +12,7 @@ AVL树：(强平衡查找树)
 B树
 B+树
 B*树
-Trie树
+Trie树 字典树，前缀树。每个节点是字符串的最大公共前缀，如gin的路由树。
 */
 var ErrNotExist = errors.New("node not exist")
 
@@ -24,7 +24,7 @@ type Tree interface {
 }
 
 type DrawTree struct {
-	LeftNode *Tree
+	LeftNode  *Tree
 	RightNode *Tree
 	Height    int
 	interval  int
