@@ -7,6 +7,8 @@ import (
 	"github.com/labstack/gommon/log"
 )
 
+// TODO 旋转涉及到根节点改变的情况能否优化
+
 const (
 	black = 30
 	red   = 31
@@ -62,23 +64,13 @@ func (r *RBTreeNode) Insert(value interface{}) (bool, error) {
 }
 
 func (r *RBTreeNode) Delete(value interface{}) error {
-	// TODO 根节点如果被删除了 怎么展示
 	var v int
 	var ok bool
 	if v, ok = value.(int); !ok {
 		return errors.New("value must int")
 	}
-	/*
-		targetType:
-		1:不需要旋转调色
-		2:需要旋转调色
-	*/
-	if v == 16 {
-		deleteNode(r, v)
-	} else {
-		deleteNode(r, v)
-	}
-	//targetType, target := getTargetAndTargetType(r, v)
+
+	deleteNode(r, v)
 	return nil
 }
 
@@ -264,7 +256,7 @@ func getMinSuccessor(node *RBTreeNode) *RBTreeNode {
 
 func realDeleteNode(node *RBTreeNode) {
 	if node.Tp == "root" {
-		node = nil
+		*node = RBTreeNode{}
 		return
 	}
 

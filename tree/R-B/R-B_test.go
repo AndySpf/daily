@@ -24,30 +24,30 @@ func TestRBTreeNode_Insert(t *testing.T) {
 }
 
 func TestRBTreeNode_Delete(t *testing.T) {
-	data := []int{12, 1, 9, 2, 0, 11, 7, 19, 4, 15, 18, 5, 14, 13, 10, 16, 6, 3, 8, 17}
-	//data := []int{12, 1, 9, 2, 0, 11, 7, 19, 4}
+	//data := []int{12, 1, 9, 2, 0, 11, 7, 19, 4, 15, 18, 5, 14, 13, 10, 16, 6, 3, 8, 17}
+	data := []int{3, 2, 4, 5, 6}
 	fmt.Println("data is ", data)
 	root := NewRBTree()
 	for _, v := range data {
 		root.Insert(v)
 		//fmt.Println("=================================")
-		if root == nil {
-			// 每次插入后，有可能会更换根节点，可通过判断当前根节点的父节点是否为空进行处理
+		if root.ParentNode != nil {
+			// 每次插入后，有可能会更换根节点，如果根节点改变，则一定是旧根节点的父节点
 			root = root.ParentNode
 		}
 	}
+	root.Draw()
 
-	data1 := []int{12, 1, 9, 2, 0, 11, 7, 19, 4, 15, 18, 5, 14, 13, 10, 16, 6, 3, 8, 17}
 	//data1 := []int{12, 1, 9, 2, 0, 11, 7, 19, 4, 15, 18, 5, 14, 13, 10, 16, 6, 3, 8, 17}
+	data1 := []int{3}
 	for _, v := range data1 {
 		root.Delete(v)
-		fmt.Println(root)
 		if root.ParentNode != nil {
-			// 每次插入后，有可能会更换根节点，可通过判断当前根节点的父节点是否为空进行处理
+			// 每次旋转调色后，有可能会更换根节点，如果根节点改变，则一定是旧根节点的父节点
 			root = root.ParentNode
 		}
 	}
-
+	fmt.Println(root)
 	root.Draw()
 }
 
