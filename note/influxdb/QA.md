@@ -11,5 +11,12 @@ A:指定时间间隔的备份是在数据块上执行的，而不是逐点执行
   + 还原数据时，您可能会看到指定时间段之外的数据。
   + 如果备份文件中包含重复的数据点，则将再次写入这些点，从而覆盖所有现有数据。
 ---
+Q:内存占用过大的问题怎么优化？
+A:
++ 数据库设计上避免一个数据库太多series。百万级别的很容易OOM（SHOW SERIES CARDINALITY）   
++ 采用tsl索引，通过修改配置文件中的index-version = “inmem” > index-version = “tsi1”   
+参考链接：   
+[记一次influx内存调优](https://www.jianshu.com/p/dbbb73b537e1)   
+[how-to-overcome-memory-usage-challenges](https://www.influxdata.com/blog/how-to-overcome-memory-usage-challenges-with-the-time-series-index/)
 
     

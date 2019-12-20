@@ -1,0 +1,1 @@
+{"appId":"test","cluster":"default","namespaceName":"TEST1.dycenter","releaseKey":"20191120101827-eaa958a882a7dbc6","configurations":{"dbserver":"1.1.1.1","falcon":"2.2.2.2:1988","readtimeout":"20"}}

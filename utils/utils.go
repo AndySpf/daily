@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os/exec"
+	"sort"
 	"strings"
 	"time"
 
@@ -110,4 +111,58 @@ func format() {
 	s := `{"age": 7}`
 	json.Unmarshal([]byte(s), t)
 	fmt.Println(t)
+}
+
+func RemoveItemFromSlice(slice []int, i int) []int {
+	copy(slice[i:], slice[i+1:])
+	return slice[:len(slice)-1]
+}
+
+func ReverseSlice(a []int) []int {
+	for i := len(a)/2 - 1; i >= 0; i-- {
+		opp := len(a) - 1 - i
+		a[i], a[opp] = a[opp], a[i]
+	}
+
+	return a
+}
+
+func SliceDeduplication(in []int) []int {
+	sort.Ints(in)
+	j := 0
+	for i := 1; i < len(in); i++ {
+		if in[j] == in[i] {
+			continue
+		}
+		j++
+
+		in[j] = in[i]
+	}
+	result := in[:j+1]
+	return result
+}
+
+// time.Time序列化时会变成2006-01-02T15:04:05+8:00类型，使用重写后的Time可以正常json序列化
+type Time time.Time
+
+const (
+	timeFormart = "2006-01-02 15:04:05"
+)
+
+func (t *Time) UnmarshalJSON(data []byte) (err error) {
+	now, err := time.ParseInLocation(`"`+timeFormart+`"`, string(data), time.Local)
+	*t = Time(now)
+	return
+}
+
+func (t Time) MarshalJSON() ([]byte, error) {
+	b := make([]byte, 0, len(timeFormart)+2)
+	b = append(b, '"')
+	b = time.Time(t).AppendFormat(b, timeFormart)
+	b = append(b, '"')
+	return b, nil
+}
+
+func (t Time) String() string {
+	return time.Time(t).Format(timeFormart)
 }

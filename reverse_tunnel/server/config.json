@@ -1,0 +1,18 @@
+{
+  "ssh_config": {
+    "reverse_keys": {
+      "mips_public_key_path": "./ssh_keys/tunnel.mips",
+      "mips_private_key_path": "./ssh_keys/tunnel.mips.pub",
+      "x_public_key_path": "./ssh_keys/tunnel.x86",
+      "x_private_key_path": "./ssh_keys/tunnel.x86.pub"
+    },
+    "forward_keys": {
+      "public_key_path": "/root/.ssh/id_rsa",
+      "private_key_path": "/root/.ssh/id_rsa.pub"
+    },
+    "sshd_port": 22
+  },
+  "http_config": {
+    "bind_addr": "0.0.0.0:6888"
+  }
+}

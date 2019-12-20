@@ -1,0 +1,9 @@
+{
+  "server_addr": "134.175.68.57:6888",
+  "report_progress_url": "/progress",
+  "ssh_key_url": {
+    "client_private_key_mips": "/client/private_key/mips",
+    "client_private_key_x": "/client/private_key/normal",
+    "server_public_key": "/server/public_key"
+  }
+}
