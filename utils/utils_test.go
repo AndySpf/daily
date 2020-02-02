@@ -40,3 +40,28 @@ func TestT(t *testing.T) {
 func TestTs(t *testing.T) {
 	format()
 }
+
+func TestRemoveItemFromSlice(t *testing.T) {
+	m1 := map[string]string{"name": "zs", "age": "1"}
+	m2 := make(map[string]string)
+	for key, value := range m1 {
+		m2[key] = value
+	}
+	fmt.Println(&m2)
+	fmt.Println(&m1)
+	m1["name"] = "ls"
+	fmt.Println(m1)
+	fmt.Println(m2)
+
+	slice := []int{1, 2, 3, 4}
+	i := 3
+	copy(slice[i:], slice[i+1:])
+	slice = slice[: len(slice)-1 : len(slice)-1]
+	//copy(slice[i:], slice[i+1:])
+	//slice = slice[: len(slice)-1 : len(slice)-1]
+	//copy(slice[i:], slice[i+1:])
+	//slice = slice[: len(slice)-1 : len(slice)-1]
+	fmt.Println(slice)
+	fmt.Println(len(slice))
+	fmt.Println(cap(slice))
+}

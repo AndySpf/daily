@@ -1,11 +1,12 @@
 package utils
 
 import (
+	"bytes"
+	"container/heap"
 	"fmt"
+	"io"
 	"time"
 
-	//"github.com/zouyx/agollo"
-	//"github.com/zouyx/agollo"
 	"io/ioutil"
 	"os"
 	"testing"
@@ -154,27 +155,112 @@ func (p s) String() string {
 	return "aaaa"
 }
 
-func TestDaily1(t *testing.T) {
-	nums := []int{2, 7, 9, 3, 1}
-	dp := make([]int, len(nums)+1)
-	dp[0] = 0
-	dp[1] = nums[0]
-	for i := 2; i < len(nums); i++ {
-		dp[i] = dp[i-1]
-		if dp[i-2]+nums[i-1] > dp[i-1] {
-			dp[i] = dp[i-2] + nums[i-1]
-		}
-	}
-	fmt.Println(dp)
+type People interface {
+	Speak(string) string
 }
 
-func f() {
-	defer func() {
-		fmt.Println("f")
-	}()
+type Stduent struct{}
+
+func (stu *Stduent) Speak(think string) (talk string) {
+	if think == "bitch" {
+		talk = "You are a good boy"
+	} else {
+		talk = "hi"
+	}
+	return
 }
-func f1() {
-	defer func() {
-		fmt.Println("f1")
-	}()
+
+type augmentedReader struct {
+	innerReader io.Reader
+	augmentFunc func([]byte) []byte
+}
+
+// replaces ' ' with '!'
+func bangify(buf []byte) []byte {
+	return bytes.Replace(buf, []byte(" "), []byte("!"), -1)
+}
+
+func (r *augmentedReader) Read(buf []byte) (int, error) {
+	tmpBuf := make([]byte, len(buf))
+	n, err := r.innerReader.Read(tmpBuf)
+	copy(buf[:n], r.augmentFunc(tmpBuf[:n]))
+	fmt.Println(n)
+	return n, err
+}
+
+func BangReader(r io.Reader) io.Reader {
+	fmt.Println("Bang")
+	return &augmentedReader{innerReader: r, augmentFunc: bangify}
+}
+
+func UpcaseReader(r io.Reader) io.Reader {
+	fmt.Println("Upcase")
+	return &augmentedReader{innerReader: r, augmentFunc: bytes.ToUpper}
+}
+
+type Item struct {
+	value    string // 优先级队列中的数据，可以是任意类型，这里使用string
+	priority int    // 优先级队列中节点的优先级
+	index    int    // index是该节点在堆中的位置
+}
+
+// 优先级队列需要实现heap的interface
+type PriorityQueue []*Item
+
+// 绑定Len方法
+func (pq PriorityQueue) Len() int {
+	return len(pq)
+}
+
+// 绑定Less方法，这里用的是小于号，生成的是小根堆
+func (pq PriorityQueue) Less(i, j int) bool {
+	return pq[i].priority < pq[j].priority
+}
+
+// 绑定swap方法
+func (pq PriorityQueue) Swap(i, j int) {
+	pq[i], pq[j] = pq[j], pq[i]
+	pq[i].index, pq[j].index = i, j
+}
+
+// 绑定put方法，将index置为-1是为了标识该数据已经出了优先级队列了
+func (pq *PriorityQueue) Pop() interface{} {
+	old := *pq
+	n := len(old)
+	item := old[n-1]
+	*pq = old[0 : n-1]
+	//item.index = -1
+	return item
+}
+
+// 绑定push方法
+func (pq *PriorityQueue) Push(x interface{}) {
+	n := len(*pq)
+	item := x.(*Item)
+	item.index = n
+	*pq = append(*pq, item)
+}
+
+// 更新修改了优先级和值的item在优先级队列中的位置
+func (pq *PriorityQueue) update(item *Item, value string, priority int) {
+	item.value = value
+	item.priority = priority
+	heap.Fix(pq, item.index)
+}
+
+type t1 struct {
+	A int `default:"42"`
+}
+
+func TestDaily1(t *testing.T) {
+	m := map[string]int{
+		"a": 1,
+		"b": 2,
+		"c": 3,
+	}
+	for key, v := range m {
+		delete(m, "c")
+		fmt.Print(key)
+		fmt.Println(v)
+	}
 }

@@ -1,6 +1,10 @@
+// Package hooks lumberjack包实现了io的若干接口，封装了日志文件操作的功能，可方便的实现日志切割以及轮转功能，只需要将lumberjack.Logger设置为logrus的output即可
+// 该文件为自己实现的logrus的日志分隔滚动hook
 package hooks
 
 import (
+	"daily/g"
+	"daily/utils"
 	"errors"
 	"fmt"
 	"os"
@@ -8,8 +12,6 @@ import (
 	"strconv"
 	"strings"
 	"sync"
-	"daily/g"
-	"daily/utils"
 
 	log "github.com/sirupsen/logrus"
 )
@@ -35,7 +37,7 @@ func (*MyHookCut) Fire(entry *log.Entry) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println("当前大小为:", fi.Size())
+	fmt.Println("当前大小为:  ", fi.Size())
 
 	// 文件大小没有超限，则直接返回
 	if fi.Size() < int64(getFileSize()) {
