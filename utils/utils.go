@@ -124,7 +124,6 @@ func ReverseSlice(a []int) []int {
 		opp := len(a) - 1 - i
 		a[i], a[opp] = a[opp], a[i]
 	}
-
 	return a
 }
 

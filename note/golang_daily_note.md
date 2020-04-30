@@ -10,3 +10,5 @@ Q:在docker容器中，GOMAXPROCS是否能正确判断被限制cpu后的容器�
 A:虚拟化容器中golang的GOMAXPROCS不能正确判断当前容器究竟用了多少cpu，而是会用其宿主机的cpu数量作为默认值，这就会导致容器内cpu压力过大，在cpu密集型任务中性能可能有所下降。可使用 uber-go/automaxprocs包，该包可正确判断容器内的cpu个数   
   参考链接:[GOMAXPROCS 与容器的相处之道](http://gaocegege.com/Blog/maxprocs-cpu)  
 ---
+Q:一般使用哪些调试工具？
+A:pprof，gops

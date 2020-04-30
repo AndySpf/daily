@@ -5,6 +5,21 @@ import (
 	"testing"
 )
 
+func Test5LongestPalindrome(t *testing.T) {
+	tests := []string{
+		"abba",
+		"abad",
+		"acbca",
+		"daba",
+		"ccc",
+		"ababababa",
+		"abccba",
+		"abcba",
+	}
+	for i := range tests {
+		fmt.Println(longestPalindrome1(tests[i]))
+	}
+}
 func Test10IsMatch(t *testing.T) {
 	tests := [][]string{
 		{"aa", "a"},
@@ -24,23 +39,6 @@ func Test10IsMatch(t *testing.T) {
 		fmt.Println(IsMatch1(tests[i][0], tests[i][1]))
 	}
 }
-
-func Test5LongestPalindrome(t *testing.T) {
-	tests := []string{
-		"abba",
-		"abad",
-		"acbca",
-		"daba",
-		"ccc",
-		"ababababa",
-		"abccba",
-		"abcba",
-	}
-	for i := range tests {
-		fmt.Println(longestPalindrome1(tests[i]))
-	}
-}
-
 func Test214ShortestPalindrome(t *testing.T) {
 	tests := []string{
 		"aacecaaa",
@@ -52,7 +50,6 @@ func Test214ShortestPalindrome(t *testing.T) {
 		fmt.Println(shortestPalindrome(tests[i]))
 	}
 }
-
 func Test23MergeKLists(t *testing.T) {
 	test := []*ListNode{
 		{
@@ -111,19 +108,6 @@ func Test25ReverseKGroup(t *testing.T) {
 	}
 
 }
-func Test32LongestValidParentheses(t *testing.T) {
-	tests := []string{
-		"(()())",
-		"(())))()()())",
-		"",
-		"(",
-		"()",
-		"()(())",
-	}
-	for i := range tests {
-		fmt.Println(longestValidParentheses(tests[i]))
-	}
-}
 func Test30FindSubstring(t *testing.T) {
 	tests := []map[string][]string{
 		//{"barfoothefoobarman": []string{"foo", "bar"}},
@@ -136,6 +120,19 @@ func Test30FindSubstring(t *testing.T) {
 			fmt.Println(findSubstring1(p, tests[i][p]))
 			fmt.Println(findSubstring(p, tests[i][p]))
 		}
+	}
+}
+func Test32LongestValidParentheses(t *testing.T) {
+	tests := []string{
+		"(()())",
+		"(())))()()())",
+		"",
+		"(",
+		"()",
+		"()(())",
+	}
+	for i := range tests {
+		fmt.Println(longestValidParentheses(tests[i]))
 	}
 }
 func Test37SolveSudoku(t *testing.T) {
@@ -153,7 +150,37 @@ func Test37SolveSudoku(t *testing.T) {
 		},
 	}
 	for i := range tests {
-		solveSudoku(tests[i])
+		solveSudoku1(tests[i])
+		for row := range tests[i] {
+			for col := range tests[i][row] {
+				fmt.Print(tests[i][row][col] - '0')
+				fmt.Print("  ")
+			}
+			fmt.Printf("\n")
+		}
+
 		//fmt.Println(tests[i])
+	}
+}
+func Test41FirstMissingPositive(t *testing.T) {
+	tests := [][]int{
+		{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1},
+		{-1, 0, 3},
+		{1, 2, 3},
+	}
+	for i := range tests {
+		fmt.Println(firstMissingPositive(tests[i]))
+		fmt.Println(firstMissingPositive1(tests[i]))
+	}
+}
+
+func Test42TrappingRainWater(t *testing.T) {
+	tests := [][]int{
+		{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1},
+		{0, 1, 0, 1, 1, 0, 1, 3, 2, 1, 2, 1},
+	}
+	for i := range tests {
+		fmt.Println(trap(tests[i]))
+		fmt.Println(trap1(tests[i]))
 	}
 }

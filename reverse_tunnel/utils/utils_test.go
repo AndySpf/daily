@@ -3,6 +3,9 @@ package utils
 import (
 	"bytes"
 	"container/heap"
+	"crypto/hmac"
+	"crypto/sha256"
+	"encoding/base64"
 	"fmt"
 	"io"
 	"time"
@@ -252,15 +255,45 @@ type t1 struct {
 	A int `default:"42"`
 }
 
-func TestDaily1(t *testing.T) {
-	m := map[string]int{
-		"a": 1,
-		"b": 2,
-		"c": 3,
+func deadloop() {
+	for {
+		fmt.Println("deadloop")
+		time.Sleep(time.Second * 1)
 	}
-	for key, v := range m {
-		delete(m, "c")
-		fmt.Print(key)
-		fmt.Println(v)
+}
+
+func ComputeHmacSha256(message string, secret string) string {
+	key := []byte(secret)
+	h := hmac.New(sha256.New, key)
+	h.Write([]byte(message))
+	return base64.StdEncoding.EncodeToString(h.Sum(nil))
+}
+
+func TestDaily1(t *testing.T) {
+	A := []int{1, 2, 3, 0, 0, 0}
+	B := []int{2, 5, 6}
+	merge(A, 3, B, 3)
+	fmt.Println(A)
+}
+
+func merge(A []int, m int, B []int, n int) {
+	aIndex, bIndex := 0, 0
+	for {
+		if A[aIndex] > B[bIndex] {
+			copy(A[aIndex+1:], A[aIndex:])
+			A[aIndex] = B[bIndex]
+			bIndex++
+			aIndex++
+		} else {
+			aIndex++
+		}
+
+		if aIndex == m+bIndex {
+			copy(A[aIndex:], B[bIndex:])
+			bIndex = n
+		}
+		if bIndex >= n {
+			break
+		}
 	}
 }
