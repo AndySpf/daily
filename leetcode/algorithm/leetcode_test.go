@@ -184,3 +184,29 @@ func Test42TrappingRainWater(t *testing.T) {
 		fmt.Println(trap1(tests[i]))
 	}
 }
+
+func TestMinPath(t *testing.T) {
+
+}
+
+func TestMinimalSteps(t *testing.T) {
+	fmt.Println(minimalSteps([]string{".MM..", "#..M.", ".#..#", "..O..", ".S.OM", ".#M#T", "###..", "....."}))
+}
+
+/*
+. M M . .
+# . . M .     dp[t] := min(tm) +  dp[m]
+. # . . #
+. . O . .     2 + 4 + 6 + 8 + 6 + 4
+. S . O M     2 + 4 + 6 + 10 + 12 + 2
+. # M # T      0000 0001 0010 0011 0100 0101
+# # # . .		dp[1][1<<16]   第1个m处，状态为x的最小步数
+. . . . .	  M -> O    O -> M'
+*/
+
+/*
+T . M . .
+. . O . .
+. S . . .
+M . . . .
+*/
