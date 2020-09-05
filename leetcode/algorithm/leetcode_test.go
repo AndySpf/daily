@@ -185,28 +185,90 @@ func Test42TrappingRainWater(t *testing.T) {
 	}
 }
 
-func TestMinPath(t *testing.T) {
-
+func Test51SolveNQueens1(t *testing.T) {
+	res := solveNQueens1(6)
+	fmt.Println(len(res))
+	//for i := range res {
+	//	for j := range res[i] {
+	//		fmt.Println(res[i][j])
+	//	}
+	//	fmt.Println("============")
+	//}
+	//[1 9 17 18 26 34]
+	//[2 11 13 22 24 33]
+	//[3 6 16 19 29 32]
+	//[4 8 12 23 27 31]
 }
 
-func TestMinimalSteps(t *testing.T) {
-	fmt.Println(minimalSteps([]string{".MM..", "#..M.", ".#..#", "..O..", ".S.OM", ".#M#T", "###..", "....."}))
+func Test251BinaryTreePaths(t *testing.T) {
+	root := &TreeNode{
+		Val: 1,
+		Left: &TreeNode{
+			Val: 2,
+			Left: &TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: nil,
+		},
+		Right: &TreeNode{
+			Val:   5,
+			Left:  nil,
+			Right: nil,
+		},
+	}
+	res := binaryTreePaths1(root)
+	for _, path := range res {
+		fmt.Println(path)
+	}
 }
 
-/*
-. M M . .
-# . . M .     dp[t] := min(tm) +  dp[m]
-. # . . #
-. . O . .     2 + 4 + 6 + 8 + 6 + 4
-. S . O M     2 + 4 + 6 + 10 + 12 + 2
-. # M # T      0000 0001 0010 0011 0100 0101
-# # # . .		dp[1][1<<16]   第1个m处，状态为x的最小步数
-. . . . .	  M -> O    O -> M'
-*/
+func Test494FindTargetSumWays(t *testing.T) {
+	fmt.Println(findTargetSumWays1([]int{0, 0, 0, 0, 0, 0, 0, 0, 1}, 1))
+}
 
-/*
-T . M . .
-. . O . .
-. S . . .
-M . . . .
-*/
+func Test841CanVisitAllRooms(t *testing.T) {
+	params := [][][]int{
+		//{
+		//	{1}, {2}, {3}, {},
+		//},
+		//{
+		//	{1, 3}, {3, 0, 1}, {2}, {0},
+		//},
+		{
+			{7, 16, 8, 16, 19, 8}, {10}, {9, 11}, {3, 14, 16, 19}, {8, 10, 19, 1, 7}, {13, 5, 10, 15, 4}, {6, 13}, {14, 14, 11, 12, 18}, {3}, {17, 9}, {1, 2, 6, 9, 6}, {12, 12, 2}, {4, 4}, {2, 13, 17}, {17}, {}, {11, 15}, {3, 5}, {15, 18, 5}, {7, 18, 1},
+		},
+	}
+	for _, param := range params {
+		fmt.Println(canVisitAllRooms(param))
+	}
+}
+
+func Test486PredictTheWinner(t *testing.T) {
+	params := [][]int{
+		//{1, 5, 233, 7},
+		//{1, 5, 2},
+		//{1, 89, 3},
+		{1, 3, 1},
+		{1, 5, 233, 7},
+		{1, 3, 3, 4, 10, 6},
+	}
+	for _, param := range params {
+		fmt.Println(PredictTheWinner1(param))
+	}
+}
+
+func TestOffer20IsNumber(t *testing.T) {
+	params := []string{
+		//"+100", "5e2", "-123", "3.1416", "-1E-16", "0123",
+		//"12e", "1a3.14", "1.2.3", "+-5", "12e+5.4", "1", "1 ", " ", ".", "3.", "..",
+		//"+.8", "+8.", "-.",
+		"46.e3",
+		".e3",
+		"4e3.",
+	}
+	for i := range params {
+		fmt.Println(isNumber(params[i]))
+	}
+}

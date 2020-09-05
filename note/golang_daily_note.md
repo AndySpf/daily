@@ -11,4 +11,4 @@ A:虚拟化容器中golang的GOMAXPROCS不能正确判断当前容器究竟用�
   参考链接:[GOMAXPROCS 与容器的相处之道](http://gaocegege.com/Blog/maxprocs-cpu)  
 ---
 Q:一般使用哪些调试工具？
-A:pprof，gops
+A:pprof，gops, trace 
