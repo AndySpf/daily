@@ -55,28 +55,28 @@ func IsMatch(s, p string) bool {
 
 // IsMatch1 按照下一跳路径，递归
 func IsMatch1(s string, p string) bool {
-	begin := new(Node)
+	begin := new(regexNode)
 	begin.C = '>'
 	generatePattern(begin, p, 0)
 	fmt.Println(begin)
 	return check(begin, s, 0)
 }
 
-type Node struct {
+type regexNode struct {
 	C        byte
-	Children map[byte][]*Node
+	Children map[byte][]*regexNode
 	End      bool
 }
 
-func (n *Node) append(c byte, child *Node) {
+func (n *regexNode) append(c byte, child *regexNode) {
 	m := n.Children
 	if m == nil {
-		m = make(map[byte][]*Node)
+		m = make(map[byte][]*regexNode)
 		n.Children = m
 	}
 	list := m[c]
 	if list == nil {
-		list = make([]*Node, 0)
+		list = make([]*regexNode, 0)
 	}
 	for _, v := range list {
 		if v == child {
@@ -88,7 +88,7 @@ func (n *Node) append(c byte, child *Node) {
 	m[c] = list
 }
 
-func generatePattern(now *Node, str string, idx int) {
+func generatePattern(now *regexNode, str string, idx int) {
 	if len(str) <= idx {
 		now.End = true
 		return
@@ -98,7 +98,7 @@ func generatePattern(now *Node, str string, idx int) {
 	case '*':
 		now.append(now.C, now)
 	default:
-		node := new(Node)
+		node := new(regexNode)
 		node.C = str[idx]
 		now.append(str[idx], node)
 		vnow = node
@@ -107,7 +107,7 @@ func generatePattern(now *Node, str string, idx int) {
 	return
 }
 
-func check(now *Node, str string, idx int) bool {
+func check(now *regexNode, str string, idx int) bool {
 	if len(str) <= idx {
 		return now.End
 	}
