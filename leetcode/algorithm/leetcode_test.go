@@ -20,6 +20,9 @@ func Test5LongestPalindrome(t *testing.T) {
 		fmt.Println(longestPalindrome1(tests[i]))
 	}
 }
+func Test6Convert(t *testing.T) {
+	fmt.Println(convert("PAYPALISHIRING", 3))
+}
 func Test10IsMatch(t *testing.T) {
 	tests := [][]string{
 		{"aa", "a"},
