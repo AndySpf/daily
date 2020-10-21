@@ -7,14 +7,14 @@ import (
 // IsMatch p:abf*b
 // 		   s:abfff
 func IsMatch(s, p string) bool {
-	if p[0] == '*' || len(p) == 0 || len(s) == 0 {
+	if p[0] == '*' {
 		return false
 	}
+
 	status := make([][]bool, len(s)+1) // 二维数组，status[i,j] s的前i项可以被p的前j项匹配
 	for i := range status {
 		status[i] = make([]bool, len(p)+1)
 	}
-
 	// 初始化p或者s为空的情况：
 	// p为空的情况一定为false，即二维数组中，每一个小数组的第一项为false
 	// s，p都为空的情况认为是能够匹配的，为true
@@ -47,9 +47,6 @@ func IsMatch(s, p string) bool {
 			}
 		}
 	}
-	//for i := range status {
-	//	fmt.Println(status[i])
-	//}
 	return status[len(s)][len(p)]
 }
 

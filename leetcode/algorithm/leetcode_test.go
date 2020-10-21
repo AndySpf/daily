@@ -23,23 +23,29 @@ func Test5LongestPalindrome(t *testing.T) {
 func Test6Convert(t *testing.T) {
 	fmt.Println(convert("PAYPALISHIRING", 3))
 }
+func Test7myAtoi(t *testing.T) {
+	fmt.Println(myAtoi("9223372036854775808"))
+}
+func Test7ReverseInt(t *testing.T) {
+	fmt.Println(reverseInt(-1230))
+}
 func Test10IsMatch(t *testing.T) {
 	tests := [][]string{
-		{"aa", "a"},
-		{"aa", "a*"},
-		{"ab", ".*"},
-		{"aabc", "c*a*b*"},
-		{"mississippi", "mis*is*p*."},
-		{"aaa", "a*aa"},
-		{"mississippp", "mis*is*ip*pp"},
-		{"abcdfwaeqw", ".*"},
-		{"aaa", "a*aaaa"},
-		{"aba", "a.a"},
-		{"mississippi", "mis*is*ip*."},
+		{"", "*"},
+		//{"aa", "a*"},
+		//{"ab", ".*"},
+		//{"aabc", "c*a*b*"},
+		//{"mississippi", "mis*is*p*."},
+		//{"aaa", "a*aa"},
+		//{"mississippp", "mis*is*ip*pp"},
+		//{"abcdfwaeqw", ".*"},
+		//{"aaa", "a*aaaa"},
+		//{"aba", "a.a"},
+		//{"mississippi", "mis*is*ip*."},
 	}
 	for i := range tests {
-		fmt.Print(IsMatch(tests[i][0], tests[i][1]))
-		fmt.Println(IsMatch1(tests[i][0], tests[i][1]))
+		fmt.Println(IsMatch(tests[i][0], tests[i][1]))
+		//fmt.Println(IsMatch1(tests[i][0], tests[i][1]))
 	}
 }
 func Test214ShortestPalindrome(t *testing.T) {
@@ -206,6 +212,17 @@ func Test42TrappingRainWater(t *testing.T) {
 		fmt.Println(trap1(tests[i]))
 	}
 }
+func Test44IsMatch(t *testing.T) {
+	params := [][]string{
+		{"aa", "*"},
+		{"cb", "?a"},
+		{"adceb", "*a*b"},
+		{"aa", "a"},
+	}
+	for i := range params {
+		fmt.Println(isMatch(params[i][0], params[i][1]))
+	}
+}
 func Test45Jump(t *testing.T) {
 	//nums := []int{5, 6, 4, 4, 6, 9, 4, 4, 7, 4, 4, 8, 2, 6, 8, 1, 5, 9, 6, 5, 2, 7, 9, 7, 9, 6, 9, 4, 1, 6, 8, 8, 4, 4, 2, 0, 3, 8, 5}
 	//nums := []int{2, 3, 1, 1, 4}
@@ -302,6 +319,22 @@ func Test116Connect(t *testing.T) {
 		Next: nil,
 	}
 	connect(node)
+}
+func Test143ReorderList(t *testing.T) {
+	head := &ListNode{
+		Val: 1,
+		Next: &ListNode{
+			Val: 2,
+			Next: &ListNode{
+				Val: 3,
+				Next: &ListNode{
+					Val:  4,
+					Next: nil,
+				},
+			},
+		},
+	}
+	reorderList(head)
 }
 func Test216CombinationSum3(t *testing.T) {
 	fmt.Println(combinationSum3(3, 9))
