@@ -60,6 +60,7 @@ func fill(board [][]byte, n int, row [9][9]bool, col [9][9]bool, box [9][9]bool)
 	return false
 }
 
+// 第二次写
 func solveSudoku1(board [][]byte) {
 	rows := [9][9]bool{} // 第n行是否已经存在某个数字
 	cols := [9][9]bool{}
@@ -107,5 +108,64 @@ func fillNum(board [][]byte, n int, rows [9][9]bool, cols [9][9]bool, boxs [9][9
 		}
 	}
 
+	return false
+}
+
+// 第三次写
+func solveSudoku3(board [][]byte) {
+	status := map[string][][]bool{}
+	status["row"] = make([][]bool, 9)
+	status["col"] = make([][]bool, 9)
+	status["block"] = make([][]bool, 9)
+
+	for i := 0; i < 9; i++ {
+		status["row"][i] = make([]bool, 9)
+		status["col"][i] = make([]bool, 9)
+		status["block"][i] = make([]bool, 9)
+	}
+
+	for i := range board {
+		for j := range board[i] {
+			if num := board[i][j]; num != '.' {
+				block := i/3*3 + j/3
+				status["row"][i][num-'0'-1] = true
+				status["col"][j][num-'0'-1] = true
+				status["block"][block][num-'0'-1] = true
+			}
+		}
+	}
+
+	fillNum3(0, board, status)
+}
+
+func fillNum3(n int, board [][]byte, status map[string][][]bool) bool {
+	if n == 9*9 {
+		return true
+	}
+
+	col := n % 9
+	row := n / 9
+	block := row/3*3 + col/3
+	if num := board[row][col]; num != '.' {
+
+		return fillNum3(n+1, board, status)
+	}
+
+	for num := 1; num <= 9; num++ {
+		if !status["row"][row][num-1] && !status["col"][col][num-1] && !status["block"][block][num-1] {
+
+			status["row"][row][num-1] = true
+			status["col"][col][num-1] = true
+			status["block"][block][num-1] = true
+			board[row][col] = uint8(num) + '0'
+			if fillNum3(n+1, board, status) == true {
+				return true
+			}
+			board[row][col] = '.'
+			status["row"][row][num-1] = false
+			status["col"][col][num-1] = false
+			status["block"][block][num-1] = false
+		}
+	}
 	return false
 }

@@ -20,20 +20,20 @@ func canVisitAllRooms(rooms [][]int) bool {
 }
 
 var (
-	num        int
-	existArray []bool
+	canVisitAllRoomsNum int
+	existArray          []bool
 )
 
 func canVisitAllRooms1(rooms [][]int) bool {
-	num = 0
+	canVisitAllRoomsNum = 0
 	existArray = make([]bool, len(rooms))
 	dfs(rooms, 0)
-	return num == len(rooms)
+	return canVisitAllRoomsNum == len(rooms)
 }
 
 func dfs(rooms [][]int, room int) {
 	existArray[room] = true
-	num++
+	canVisitAllRoomsNum++
 	for _, item := range rooms[room] {
 		if !existArray[item] {
 			dfs(rooms, item)
