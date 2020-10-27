@@ -66,6 +66,15 @@ func Test15ThreeSum(t *testing.T) {
 	nums := []int{0, 0, 0, 0, 0}
 	fmt.Println(threeSum(nums))
 }
+func Test16ThreeSumClosest(t *testing.T) {
+	fmt.Println(threeSumClosest([]int{-1, 2, 1, -4}, 1))
+}
+func Test18FourSum(t *testing.T) {
+	fourSumFes := fourSum([]int{1, 0, -1, 0, -2, 2}, 0)
+	for i := range fourSumFes {
+		fmt.Println(fourSumFes[i])
+	}
+}
 func Test214ShortestPalindrome(t *testing.T) {
 	tests := []string{
 		"aacecaaa",
@@ -298,7 +307,10 @@ func Test94InorderTraversal(t *testing.T) {
 	res := inorderTraversal(&TreeNode{Val: 1, Right: &TreeNode{Val: 2, Left: &TreeNode{Val: 3}}})
 	fmt.Println(res)
 }
-
+func Test114PreorderTraversal(t *testing.T) {
+	res := preorderTraversal1(&TreeNode{Val: 1, Right: &TreeNode{Val: 2, Left: &TreeNode{Val: 3}}})
+	fmt.Println(res)
+}
 func Test116Connect(t *testing.T) {
 	node := &Node{
 		Val: 1,
