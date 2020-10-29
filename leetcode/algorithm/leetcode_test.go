@@ -75,6 +75,9 @@ func Test18FourSum(t *testing.T) {
 		fmt.Println(fourSumFes[i])
 	}
 }
+func Test60GetPermutation(t *testing.T) {
+	fmt.Println(getPermutation(4, 8))
+}
 func Test214ShortestPalindrome(t *testing.T) {
 	tests := []string{
 		"aacecaaa",

@@ -56,7 +56,6 @@ func jiecheng(num int) int {
 	res := 1
 	for i := 2; i <= num; i++ {
 		res = res * i
-		fmt.Println(res)
 	}
 	return res
 }
