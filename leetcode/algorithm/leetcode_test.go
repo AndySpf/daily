@@ -75,6 +75,9 @@ func Test18FourSum(t *testing.T) {
 		fmt.Println(fourSumFes[i])
 	}
 }
+func Test29Divide(t *testing.T) {
+	fmt.Println(divide(20, 2))
+}
 func Test60GetPermutation(t *testing.T) {
 	fmt.Println(getPermutation(4, 8))
 }
