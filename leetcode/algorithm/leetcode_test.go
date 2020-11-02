@@ -81,6 +81,13 @@ func Test29Divide(t *testing.T) {
 func Test60GetPermutation(t *testing.T) {
 	fmt.Println(getPermutation(4, 8))
 }
+func Test140WordBreak(t *testing.T) {
+	//res := wordBreak1("pineapplepenapple", []string{"apple","pen","applepen","pine","pineapple"})
+	res := wordBreak1("app", []string{"app"})
+	for i := range res {
+		fmt.Println(res[i])
+	}
+}
 func Test214ShortestPalindrome(t *testing.T) {
 	tests := []string{
 		"aacecaaa",
@@ -247,10 +254,10 @@ func Test42TrappingRainWater(t *testing.T) {
 }
 func Test44IsMatch(t *testing.T) {
 	params := [][]string{
-		{"aa", "*"},
-		{"cb", "?a"},
-		{"adceb", "*a*b"},
-		{"aa", "a"},
+		//{"aa", "*"},
+		//{"cb", "?a"},
+		{"adceb", "ad*eb"},
+		//{"aa", "a"},
 	}
 	for i := range params {
 		fmt.Println(isMatch(params[i][0], params[i][1]))
