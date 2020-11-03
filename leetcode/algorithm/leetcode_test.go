@@ -75,29 +75,9 @@ func Test18FourSum(t *testing.T) {
 		fmt.Println(fourSumFes[i])
 	}
 }
-func Test29Divide(t *testing.T) {
-	fmt.Println(divide(20, 2))
-}
-func Test60GetPermutation(t *testing.T) {
-	fmt.Println(getPermutation(4, 8))
-}
-func Test140WordBreak(t *testing.T) {
-	//res := wordBreak1("pineapplepenapple", []string{"apple","pen","applepen","pine","pineapple"})
-	res := wordBreak1("app", []string{"app"})
-	for i := range res {
-		fmt.Println(res[i])
-	}
-}
-func Test214ShortestPalindrome(t *testing.T) {
-	tests := []string{
-		"aacecaaa",
-		"aaceecaaa",
-		"",
-		"a",
-	}
-	for i := range tests {
-		fmt.Println(shortestPalindrome(tests[i]))
-	}
+
+func Test22generateParenthesis(t *testing.T) {
+	fmt.Println(generateParenthesis1(4))
 }
 func Test23MergeKLists(t *testing.T) {
 	test := []*ListNode{
@@ -169,6 +149,9 @@ func Test25ReverseKGroup(t *testing.T) {
 		}
 	}
 
+}
+func Test29Divide(t *testing.T) {
+	fmt.Println(divide(20, 2))
 }
 func Test30FindSubstring(t *testing.T) {
 	tests := []map[string][]string{
@@ -301,6 +284,15 @@ func Test52SolveNQueens2(t *testing.T) {
 	//[3 6 16 19 29 32]
 	//[4 8 12 23 27 31]
 }
+func Test60GetPermutation(t *testing.T) {
+	fmt.Println(getPermutation(4, 8))
+}
+
+func Test68FullJustify(t *testing.T) {
+	fullJustify([]string{"Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do"},
+		20)
+}
+
 func Test77Combine(t *testing.T) {
 	params := [][]int{
 		{4, 2},
@@ -363,6 +355,13 @@ func Test116Connect(t *testing.T) {
 	}
 	connect(node)
 }
+func Test140WordBreak(t *testing.T) {
+	//res := wordBreak1("pineapplepenapple", []string{"apple","pen","applepen","pine","pineapple"})
+	res := wordBreak1("app", []string{"app"})
+	for i := range res {
+		fmt.Println(res[i])
+	}
+}
 func Test143ReorderList(t *testing.T) {
 	head := &ListNode{
 		Val: 1,
@@ -378,6 +377,17 @@ func Test143ReorderList(t *testing.T) {
 		},
 	}
 	reorderList(head)
+}
+func Test214ShortestPalindrome(t *testing.T) {
+	tests := []string{
+		"aacecaaa",
+		"aaceecaaa",
+		"",
+		"a",
+	}
+	for i := range tests {
+		fmt.Println(shortestPalindrome(tests[i]))
+	}
 }
 func Test216CombinationSum3(t *testing.T) {
 	fmt.Println(combinationSum3(3, 9))

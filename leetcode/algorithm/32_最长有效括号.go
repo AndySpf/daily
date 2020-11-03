@@ -8,7 +8,7 @@ func longestValidParentheses(s string) int {
 	status := make([]int, len(s)) // 以当前字符结尾的字符串最长有效括号的长度 对于字符串()()) status为[0,1,0,4,0]
 	// init
 	status[0] = 0
-	// start
+	// startIndex
 	max := 0
 	for i := 1; i < len(s); i++ { // O(n)
 		if s[i] != ')' {
