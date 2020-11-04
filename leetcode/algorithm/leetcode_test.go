@@ -167,6 +167,11 @@ func Test30FindSubstring(t *testing.T) {
 		}
 	}
 }
+func Test31nextPermutation(t *testing.T) {
+	param := []int{1, 3, 5, 4, 2}
+	nextPermutation(param)
+	fmt.Println(param)
+}
 func Test32LongestValidParentheses(t *testing.T) {
 	tests := []string{
 		"(()())",
@@ -311,6 +316,38 @@ func Test77Combine(t *testing.T) {
 func Test94InorderTraversal(t *testing.T) {
 	res := inorderTraversal(&TreeNode{Val: 1, Right: &TreeNode{Val: 2, Left: &TreeNode{Val: 3}}})
 	fmt.Println(res)
+}
+func Test99recoverTree(t *testing.T) {
+	param := &TreeNode{
+		Val: 17,
+		Left: &TreeNode{
+			Val: 5,
+			Left: &TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   7,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &TreeNode{
+			Val: 15,
+			Left: &TreeNode{
+				Val:   13,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   10,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+	recoverTree(param)
 }
 func Test114PreorderTraversal(t *testing.T) {
 	res := preorderTraversal1(&TreeNode{Val: 1, Right: &TreeNode{Val: 2, Left: &TreeNode{Val: 3}}})
