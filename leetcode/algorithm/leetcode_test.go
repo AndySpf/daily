@@ -317,6 +317,9 @@ func Test94InorderTraversal(t *testing.T) {
 	res := inorderTraversal(&TreeNode{Val: 1, Right: &TreeNode{Val: 2, Left: &TreeNode{Val: 3}}})
 	fmt.Println(res)
 }
+func Test97isInterleave(t *testing.T) {
+	fmt.Println(isInterleave1("ab", "a", "abc"))
+}
 func Test99recoverTree(t *testing.T) {
 	param := &TreeNode{
 		Val: 17,
@@ -391,6 +394,12 @@ func Test116Connect(t *testing.T) {
 		Next: nil,
 	}
 	connect(node)
+}
+func Test127ladderLength(t *testing.T) {
+	beginWord := "a"
+	endWord := "c"
+	wordList := []string{"a", "b", "c"}
+	fmt.Println(ladderLength(beginWord, endWord, wordList))
 }
 func Test140WordBreak(t *testing.T) {
 	//res := wordBreak1("pineapplepenapple", []string{"apple","pen","applepen","pine","pineapple"})
