@@ -541,3 +541,6 @@ func TestOffer20IsNumber(t *testing.T) {
 func Test1002CommonChars(t *testing.T) {
 	fmt.Println(commonChars([]string{"cool", "lock", "cook"}))
 }
+func Test1356sortByBits(t *testing.T) {
+	fmt.Println(sortByBits([]int{1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1}))
+}
