@@ -1,9 +1,7 @@
 package algorithm
 
-// 1,2,3 => 1,3,2
-// 3,2,1 => 1,2,3
-// 1,3,4,2
-// 1,3,5,4,2  2,3,1
+// 1,3,5,4,2 => nums[i]==5, target=nums[i-1]=3 => nums[j]==4 =>
+// reverse => 1,3,2,4,5 => exchange => 1,4,2,3,5
 func nextPermutation(nums []int) {
 	if len(nums) <= 1 {
 		return
@@ -20,8 +18,8 @@ func nextPermutation(nums []int) {
 					break
 				}
 			}
-			reverseInts(nums[i:])
-			j = i + len(nums[i:]) - (j - i) - 1 // 翻转后j的位置
+			reverseInts(nums[i:])               // i之后的内容本来就是升序的，此时将这升序翻转就变成了最小的后缀
+			j = i + len(nums[i:]) - (j - i) - 1 // 翻转后j的位置，然后将i-1，j交换即可
 			nums[j], nums[i-1] = nums[i-1], nums[j]
 			return
 		}

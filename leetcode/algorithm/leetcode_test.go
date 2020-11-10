@@ -185,6 +185,9 @@ func Test32LongestValidParentheses(t *testing.T) {
 		fmt.Println(longestValidParentheses(tests[i]))
 	}
 }
+func Test33search(t *testing.T) {
+	fmt.Println(search([]int{3, 1, 2}, 1))
+}
 func Test37SolveSudoku(t *testing.T) {
 	tests := [][][]byte{
 		{
@@ -297,7 +300,9 @@ func Test68FullJustify(t *testing.T) {
 	fullJustify([]string{"Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do"},
 		20)
 }
-
+func Test76minWindow(t *testing.T) {
+	fmt.Println(minWindow("acbbaca", "aba"))
+}
 func Test77Combine(t *testing.T) {
 	params := [][]int{
 		{4, 2},
