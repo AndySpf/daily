@@ -29,7 +29,7 @@ func getMax(height []int, index int) int {
 	return area
 }
 
-// 双指针分别指向首尾：min(height[0],height[len(height)-1]) * (len(height)-1-0)
+// 双指针分别指向首尾：minFindRotateSteps(height[0],height[len(height)-1]) * (len(height)-1-0)
 // 移动min(height[0],height[len(height)-1])中较小的一个。才可能获得更大结果
 // 如果移动较大的那一个，则min求得的结果一定不会更大，只有可能更小。
 func maxArea1(height []int) int {

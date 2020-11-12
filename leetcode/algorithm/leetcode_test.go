@@ -489,6 +489,9 @@ func Test486PredictTheWinner(t *testing.T) {
 func Test494FindTargetSumWays(t *testing.T) {
 	fmt.Println(findTargetSumWays1([]int{0, 0, 0, 0, 0, 0, 0, 0, 1}, 1))
 }
+func Test514findRotateSteps(t *testing.T) {
+	fmt.Println(findRotateSteps1("cotmaijx", "oatjiioicitatajtijciocjcaaxaaatmctxamacaamjjx"))
+}
 func Test530GetMinimumDifference(t *testing.T) {
 	root := &TreeNode{
 		Val: 5,

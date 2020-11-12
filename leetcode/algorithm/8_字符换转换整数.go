@@ -11,7 +11,7 @@ const (
 
 func myAtoi(s string) int {
 	max := int64((1 << 31) - 1)
-	//min := int64(-(1 << 31))
+	//minFindRotateSteps := int64(-(1 << 31))
 	if len(s) == 0 {
 		return 0
 	}

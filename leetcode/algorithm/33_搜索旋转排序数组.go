@@ -10,23 +10,9 @@ func search(nums []int, target int) int {
 	}
 
 	// 找到旋转点
-	start, end := 1, len(nums)-1
-	rotate := 0
-	for start <= end {
-		if nums[start] < nums[start-1] {
-			rotate = start
-			break
-		}
-		if nums[end] < nums[end-1] {
-			rotate = end
-			break
-		}
-		start++
-		end--
-	}
+	rotate := findRotate(nums)
 
-	oriLen := len(nums)
-	diff := len(nums) - rotate
+	diff := len(nums) - rotate // 结果中需要减去的长度
 	// 还原有序数组
 	nums = append(nums, nums[:rotate]...)
 	nums = nums[rotate:]
@@ -44,7 +30,7 @@ func search(nums []int, target int) int {
 		// 3, 1 => 3
 		// 3, 4, 1, 2 => 3,4,1,2,3,4
 		if nums[pos] == target {
-			if pos+rotate < oriLen {
+			if pos+rotate < len(nums) {
 				return pos + rotate
 			} else {
 				return pos - diff
@@ -52,4 +38,22 @@ func search(nums []int, target int) int {
 		}
 	}
 	return -1
+}
+
+func findRotate(nums []int) int {
+	rotate := 0
+	start, end := 1, len(nums)-1
+	for start <= end {
+		if nums[start] < nums[start-1] {
+			rotate = start
+			break
+		}
+		if nums[end] < nums[end-1] {
+			rotate = end
+			break
+		}
+		start++
+		end--
+	}
+	return rotate
 }
