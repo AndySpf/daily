@@ -243,6 +243,10 @@ func Test42TrappingRainWater(t *testing.T) {
 		fmt.Println(trap1(tests[i]))
 	}
 }
+func Test43multiply(t *testing.T) {
+	//fmt.Println(multiply("498828660196","840477629533"))
+	fmt.Println(multiply("12", "21"))
+}
 func Test44IsMatch(t *testing.T) {
 	params := [][]string{
 		//{"aa", "*"},
@@ -472,6 +476,10 @@ func Test347TopKFrequent(t *testing.T) {
 }
 func Test377CombinationSum4(t *testing.T) {
 	fmt.Println(combinationSum4_1([]int{1, 50}, 200))
+}
+func Test406reconstructQueue(t *testing.T) {
+	//reconstructQueue([][]int{{7,0}, {4,4}, {7,1}, {5,0}, {6,1}, {5,2}})
+	reconstructQueue([][]int{{9, 0}, {7, 0}, {1, 9}, {3, 0}, {2, 7}, {5, 3}, {6, 0}, {3, 4}, {6, 2}, {5, 2}})
 }
 func Test486PredictTheWinner(t *testing.T) {
 	params := [][]int{
