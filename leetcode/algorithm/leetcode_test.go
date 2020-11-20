@@ -215,6 +215,10 @@ func Test37SolveSudoku(t *testing.T) {
 		//fmt.Println(tests[i])
 	}
 }
+func Test38countAndSay(t *testing.T) {
+	fmt.Println(countAndSay(6))
+	//countAndSayOnce("111221")
+}
 func Test39CombinationSum(t *testing.T) {
 	fmt.Println(combinationSum([]int{2, 3, 5}, 8))
 }
@@ -267,6 +271,18 @@ func Test45Jump(t *testing.T) {
 	//nums := []int{9, 7, 9, 4, 8, 1, 6, 1, 5, 6, 2, 1, 7, 9, 0}
 
 	fmt.Println(jump1(nums))
+}
+func Test48rotate(t *testing.T) {
+	param := [][]int{
+		{5, 1, 9, 11},
+		{2, 4, 8, 10},
+		{13, 3, 6, 7},
+		{15, 14, 12, 16},
+	}
+	rotate(param)
+	for i := range param {
+		fmt.Println(param[i])
+	}
 }
 func Test51SolveNQueens1(t *testing.T) {
 	res := solveNQueens1(6)
