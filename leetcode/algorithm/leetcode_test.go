@@ -449,6 +449,10 @@ func Test143ReorderList(t *testing.T) {
 	}
 	reorderList(head)
 }
+func Test147insertionSortList(t *testing.T) {
+	readListNode(insertionSortList(generateListNode([]int{-1, 5, 3, 4, 0})))
+	//readListNode(generateListNode([]int{4,2,1,3}))
+}
 func Test214ShortestPalindrome(t *testing.T) {
 	tests := []string{
 		"aacecaaa",
@@ -496,6 +500,11 @@ func Test377CombinationSum4(t *testing.T) {
 func Test406reconstructQueue(t *testing.T) {
 	//reconstructQueue([][]int{{7,0}, {4,4}, {7,1}, {5,0}, {6,1}, {5,2}})
 	reconstructQueue([][]int{{9, 0}, {7, 0}, {1, 9}, {3, 0}, {2, 7}, {5, 3}, {6, 0}, {3, 4}, {6, 2}, {5, 2}})
+}
+func Test452findMinArrowShots(t *testing.T) {
+	fmt.Println(findMinArrowShots([][]int{
+		{10, 16}, {2, 8}, {1, 6}, {7, 12},
+	}))
 }
 func Test486PredictTheWinner(t *testing.T) {
 	params := [][]int{
@@ -575,4 +584,26 @@ func Test1002CommonChars(t *testing.T) {
 }
 func Test1356sortByBits(t *testing.T) {
 	fmt.Println(sortByBits([]int{1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1}))
+}
+
+func generateListNode(nums []int) *ListNode {
+	root := &ListNode{nums[0], new(ListNode)}
+	node := root.Next
+	for i := 1; i < len(nums); i++ {
+		node.Val = nums[i]
+		if i == len(nums)-1 {
+			node.Next = nil
+		} else {
+			node.Next = new(ListNode)
+		}
+		node = node.Next
+	}
+	return root
+}
+
+func readListNode(node *ListNode) {
+	for node != nil {
+		fmt.Print(node.Val, ",")
+		node = node.Next
+	}
 }
