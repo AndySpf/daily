@@ -585,7 +585,9 @@ func Test1002CommonChars(t *testing.T) {
 func Test1356sortByBits(t *testing.T) {
 	fmt.Println(sortByBits([]int{1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1}))
 }
-
+func Test1370sortString(t *testing.T) {
+	fmt.Println(sortString("gggggg"))
+}
 func generateListNode(nums []int) *ListNode {
 	root := &ListNode{nums[0], new(ListNode)}
 	node := root.Next
