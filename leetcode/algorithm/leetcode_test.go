@@ -544,6 +544,9 @@ func Test530GetMinimumDifference(t *testing.T) {
 func Test763PartitionLabels(t *testing.T) {
 	fmt.Println(partitionLabels("ababcbacadefegdehijhklij"))
 }
+func Test767reorganizeString(t *testing.T) {
+	fmt.Println(reorganizeString("aab"))
+}
 func Test841CanVisitAllRooms(t *testing.T) {
 	params := [][][]int{
 		//{
