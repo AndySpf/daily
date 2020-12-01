@@ -27,3 +27,24 @@ func quickMul(x float64, N int) float64 {
 	}
 	return ans
 }
+
+func myPow1(x float64, n int) float64 {
+	if n >= 0 {
+		return quickMul(x, n)
+	}
+	return 1.0 / quickMul(x, -n)
+}
+
+func quickMul1(x float64, N int) float64 {
+	contribution := x
+	ans := 1.0
+
+	for N > 0 {
+		if N%2 == 1 { // 最低位为1
+			ans *= contribution
+		}
+		contribution *= contribution
+		N /= 2 // 每次右移一位
+	}
+	return ans
+}

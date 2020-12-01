@@ -312,6 +312,12 @@ func Test52SolveNQueens2(t *testing.T) {
 	//[3 6 16 19 29 32]
 	//[4 8 12 23 27 31]
 }
+func Test54spiralOrder(t *testing.T) {
+	params := [][]int{
+		{6, 9, 7, 9},
+	}
+	spiralOrder(params)
+}
 func Test60GetPermutation(t *testing.T) {
 	fmt.Println(getPermutation(4, 8))
 }
