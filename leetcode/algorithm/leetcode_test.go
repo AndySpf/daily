@@ -496,7 +496,10 @@ func Test251BinaryTreePaths(t *testing.T) {
 		fmt.Println(path)
 	}
 }
-
+func Test321maxNumber(t *testing.T) {
+	//fmt.Println(maxNumberMerge([]int{3, 4, 6, 5}, []int{9, 1, 2, 5, 8, 3}))
+	fmt.Println(maxNumber([]int{3, 9}, []int{8, 9}, 3))
+}
 func Test347TopKFrequent(t *testing.T) {
 	fmt.Println(topKFrequent1([]int{3, 0, 1, 0}, 1))
 }
