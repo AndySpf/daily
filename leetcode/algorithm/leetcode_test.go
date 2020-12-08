@@ -572,6 +572,9 @@ func Test841CanVisitAllRooms(t *testing.T) {
 		fmt.Println(canVisitAllRooms(param))
 	}
 }
+func Test842splitIntoFibonacci(t *testing.T) {
+	fmt.Println(splitIntoFibonacci("123456579"))
+}
 func Test977SortedSquares(t *testing.T) {
 	nums := []int{-7, -3, 2, 3, 11}
 	fmt.Println(sortedSquares(nums))
