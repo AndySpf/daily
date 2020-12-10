@@ -321,7 +321,9 @@ func Test54spiralOrder(t *testing.T) {
 func Test60GetPermutation(t *testing.T) {
 	fmt.Println(getPermutation(4, 8))
 }
-
+func Test62uniquePaths(t *testing.T) {
+	fmt.Println(uniquePaths1(23, 12))
+}
 func Test68FullJustify(t *testing.T) {
 	fullJustify([]string{"Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do"},
 		20)
