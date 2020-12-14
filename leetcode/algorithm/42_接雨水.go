@@ -1,10 +1,16 @@
 package algorithm
 
-func minNum(i, j int) int {
-	if i < j {
-		return i
+func minNum(nums ...int) int {
+	if len(nums) < 0 {
+		return 0
 	}
-	return j
+	min := nums[0]
+	for i := 1; i < len(nums); i++ {
+		if nums[i] < min {
+			min = nums[i]
+		}
+	}
+	return min
 }
 func maxNum(i, j int) int {
 	if i > j {

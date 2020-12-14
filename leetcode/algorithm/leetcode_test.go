@@ -552,6 +552,9 @@ func Test530GetMinimumDifference(t *testing.T) {
 	}
 	fmt.Println(getMinimumDifference1(root))
 }
+func Test649predictPartyVictory(t *testing.T) {
+	fmt.Println(predictPartyVictory("DRRDRDRDRDDRDRDR"))
+}
 func Test763PartitionLabels(t *testing.T) {
 	fmt.Println(partitionLabels("ababcbacadefegdehijhklij"))
 }
