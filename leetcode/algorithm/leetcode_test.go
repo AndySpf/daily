@@ -555,6 +555,14 @@ func Test530GetMinimumDifference(t *testing.T) {
 func Test649predictPartyVictory(t *testing.T) {
 	fmt.Println(predictPartyVictory("DRRDRDRDRDDRDRDR"))
 }
+func Test738monotoneIncreasingDigits(t *testing.T){
+	params := []int{
+		10,1234,332,668841,
+	}
+	for i := range params{
+		fmt.Println(monotoneIncreasingDigits(params[i]))
+	}
+}
 func Test763PartitionLabels(t *testing.T) {
 	fmt.Println(partitionLabels("ababcbacadefegdehijhklij"))
 }
