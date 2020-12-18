@@ -21,3 +21,18 @@ func findTheDifference(s string, t string) byte {
 	}
 	return ' '
 }
+
+func findTheDifference1(s string, t string) byte {
+	sli := make([]int, 26)
+	for i := range s {
+		sli[s[i]-'a']++
+		sli[t[i]-'a']--
+	}
+	sli[t[len(t)-1]-'a']--
+	for i := range sli {
+		if sli[i] != 0 {
+			return byte(i + 'a')
+		}
+	}
+	return ' '
+}
