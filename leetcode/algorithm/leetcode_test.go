@@ -555,11 +555,14 @@ func Test530GetMinimumDifference(t *testing.T) {
 func Test649predictPartyVictory(t *testing.T) {
 	fmt.Println(predictPartyVictory("DRRDRDRDRDDRDRDR"))
 }
-func Test738monotoneIncreasingDigits(t *testing.T){
+func Test714maxProfit(t *testing.T) {
+	fmt.Println(maxProfit([]int{2, 4, 1, 5, 3, 6, 4, 3}, 2))
+}
+func Test738monotoneIncreasingDigits(t *testing.T) {
 	params := []int{
-		10,1234,332,668841,
+		10, 1234, 332, 668841,
 	}
-	for i := range params{
+	for i := range params {
 		fmt.Println(monotoneIncreasingDigits(params[i]))
 	}
 }
