@@ -385,6 +385,9 @@ func Test99recoverTree(t *testing.T) {
 	}
 	recoverTree(param)
 }
+func Test103ZigzagLevelOrder(t *testing.T) {
+	zigzagLevelOrder()
+}
 func Test114PreorderTraversal(t *testing.T) {
 	res := preorderTraversal1(&TreeNode{Val: 1, Right: &TreeNode{Val: 2, Left: &TreeNode{Val: 3}}})
 	fmt.Println(res)
@@ -566,6 +569,9 @@ func Test738monotoneIncreasingDigits(t *testing.T) {
 		fmt.Println(monotoneIncreasingDigits(params[i]))
 	}
 }
+func Test746minCostClimbingStairs(t *testing.T) {
+	fmt.Println(minCostClimbingStairs([]int{1, 100, 1, 1, 1, 100, 1, 1, 100, 1}))
+}
 func Test763PartitionLabels(t *testing.T) {
 	fmt.Println(partitionLabels("ababcbacadefegdehijhklij"))
 }
@@ -630,6 +636,25 @@ func generateListNode(nums []int) *ListNode {
 			node.Next = new(ListNode)
 		}
 		node = node.Next
+	}
+	return root
+}
+
+// nums必须按照完全二叉树构造
+func generateBinaryTreeNode(nums []int) *TreeNode {
+	root := &TreeNode{Val: nums[0]}
+	ptrs := make([]*TreeNode, len(nums))
+	ptrs[0] = root
+	for i := 0; i < len(nums); i++ {
+		if 2*i < len(nums) && nums[2*i] != -1 {
+			ptrs[i].Left = &TreeNode{Val: nums[2*i]}
+			ptrs[2*i] = ptrs[i].Left
+		}
+
+		if 2*i+1 < len(nums) {
+			ptrs[i].Right = &TreeNode{Val: nums[2*i+1]}
+			ptrs[2*i+1] = ptrs[i].Left
+		}
 	}
 	return root
 }
