@@ -385,9 +385,6 @@ func Test99recoverTree(t *testing.T) {
 	}
 	recoverTree(param)
 }
-func Test103ZigzagLevelOrder(t *testing.T) {
-	zigzagLevelOrder()
-}
 func Test114PreorderTraversal(t *testing.T) {
 	res := preorderTraversal1(&TreeNode{Val: 1, Right: &TreeNode{Val: 2, Left: &TreeNode{Val: 3}}})
 	fmt.Println(res)

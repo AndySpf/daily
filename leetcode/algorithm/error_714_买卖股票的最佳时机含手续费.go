@@ -43,14 +43,17 @@ func maxProfit(prices []int, fee int) int { // ??? 这个思路为什么过不�
 // 4,5,2,4,3,3,1,2,5,4
 func maxProfit1(prices []int, fee int) int {
 	n := len(prices)
-	buy := prices[0] + fee
+	buy := prices[0] + fee // 假设从第0个买，且花费了手续费
 	profit := 0
+	// 处理两种情况：
+	// 1.当前售价加上手续费，比上一个假设的买入点还便宜，那就更新买入点到当前天
+	// 2.当前售价大于买入花掉的钱（售价加手续费），则先将这一点利润累加上去，直到更新买入点
 	for i := 1; i < n; i++ {
-		if prices[i]+fee < buy {
+		if prices[i]+fee < buy { // 如果有加上手续费后比当前买入点更小便宜的，那就更换买的位置
 			buy = prices[i] + fee
-		} else if prices[i] > buy {
+		} else if prices[i] > buy { // 否则就假设先从这里卖出去，
 			profit += prices[i] - buy
-			buy = prices[i]
+			buy = prices[i] // 然后假设立马又从这里买入(因为并没有真的卖出所以不用手续费)，等待比今天更高的售价再卖出。
 		}
 	}
 	return profit
