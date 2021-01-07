@@ -508,6 +508,13 @@ func Test347TopKFrequent(t *testing.T) {
 func Test377CombinationSum4(t *testing.T) {
 	fmt.Println(combinationSum4_1([]int{1, 50}, 200))
 }
+func Test399calcEquation(t *testing.T) {
+	p1 := [][]string{{"a", "b"}, {"b", "c"}}
+	p2 := []float64{2.0, 3.0}
+	p3 := [][]string{{"a", "c"}, {"b", "a"}, {"a", "e"}, {"a", "a"}, {"x", "x"}}
+	//p3 := [][]string{{"b","a"}}
+	fmt.Println(calcEquation(p1, p2, p3))
+}
 func Test406reconstructQueue(t *testing.T) {
 	//reconstructQueue([][]int{{7,0}, {4,4}, {7,1}, {5,0}, {6,1}, {5,2}})
 	reconstructQueue([][]int{{9, 0}, {7, 0}, {1, 9}, {3, 0}, {2, 7}, {5, 3}, {6, 0}, {3, 4}, {6, 2}, {5, 2}})
@@ -535,6 +542,9 @@ func Test494FindTargetSumWays(t *testing.T) {
 }
 func Test514findRotateSteps(t *testing.T) {
 	fmt.Println(findRotateSteps1("cotmaijx", "oatjiioicitatajtijciocjcaaxaaatmctxamacaamjjx"))
+}
+func Test547findCircleNum(t *testing.T) {
+	fmt.Println(findCircleNum1([][]int{{1, 0, 0, 1}, {0, 1, 1, 0}, {0, 1, 1, 0}, {1, 0, 0, 1}}))
 }
 func Test530GetMinimumDifference(t *testing.T) {
 	root := &TreeNode{
