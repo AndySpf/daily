@@ -513,7 +513,7 @@ func Test399calcEquation(t *testing.T) {
 	p2 := []float64{2.0, 3.0}
 	p3 := [][]string{{"a", "c"}, {"b", "a"}, {"a", "e"}, {"a", "a"}, {"x", "x"}}
 	//p3 := [][]string{{"b","a"}}
-	fmt.Println(calcEquation(p1, p2, p3))
+	fmt.Println(calcEquation1(p1, p2, p3))
 }
 func Test406reconstructQueue(t *testing.T) {
 	//reconstructQueue([][]int{{7,0}, {4,4}, {7,1}, {5,0}, {6,1}, {5,2}})
@@ -625,6 +625,9 @@ func TestOffer20IsNumber(t *testing.T) {
 
 func Test1002CommonChars(t *testing.T) {
 	fmt.Println(commonChars([]string{"cool", "lock", "cook"}))
+}
+func Test1202smallestStringWithSwaps(t *testing.T) {
+	fmt.Println(smallestStringWithSwaps("dcab", [][]int{{0, 3}, {1, 2}, {0, 2}}))
 }
 func Test1356sortByBits(t *testing.T) {
 	fmt.Println(sortByBits([]int{1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1}))

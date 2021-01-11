@@ -1,7 +1,5 @@
 package algorithm
 
-import "fmt"
-
 //输入：
 // equations = [["a","b"],["b","c"]], values = [2.0,3.0],
 // queries = [["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]]
@@ -68,65 +66,4 @@ func calcEquation1(equations [][]string, values []float64, queries [][]string) [
 		}
 	}
 	return ans
-}
-
-var allEquation = map[string]map[string]float64{}
-
-func calcEquation(equations [][]string, values []float64, queries [][]string) []float64 {
-	allEquation = map[string]map[string]float64{}
-	l := len(equations)
-	for i := 0; i < l; i++ {
-		key := equations[i][0]
-		if _, ok := allEquation[key]; !ok {
-			allEquation[key] = map[string]float64{}
-		}
-		allEquation[key][equations[i][1]] = values[i]
-	}
-
-	fmt.Println(allEquation)
-
-	res := make([]float64, len(queries))
-	for i := range queries {
-		key := queries[i][0]
-		target := queries[i][1]
-		res[i] = -1.0
-		if _, ok := allEquation[key]; ok {
-			if key == target {
-				res[i] = 1.0
-			} else {
-				res[i] = backCalcEquation(allEquation[key], target, 1.0)
-			}
-		}
-		if res[i] == -1.0 {
-			if _, ok := allEquation[target]; res[i] == -1.0 && ok {
-				res[i] = 1 / backCalcEquation(allEquation[target], key, 1.0)
-			}
-		}
-		if res[i] == -1.0 {
-			for _, item := range allEquation {
-				if _, ok := item[key]; ok {
-					if _, ok := item[target]; ok {
-						res[i] = item[target] / item[key]
-					}
-				}
-			}
-		}
-	}
-	return res
-}
-
-func backCalcEquation(m map[string]float64, key string, res float64) float64 {
-	for k := range m {
-		if k == key {
-			return res * m[k]
-		}
-		res1 := -1.0
-		if _, ok := allEquation[k]; ok {
-			res1 = backCalcEquation(allEquation[k], key, res*m[k])
-			if res1 != -1.0 {
-				return res1
-			}
-		}
-	}
-	return -1.0
 }
