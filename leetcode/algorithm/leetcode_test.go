@@ -635,6 +635,10 @@ func Test1356sortByBits(t *testing.T) {
 func Test1370sortString(t *testing.T) {
 	fmt.Println(sortString("gggggg"))
 }
+func Test1584minCostConnectPoints(t *testing.T) {
+	params := [][]int{{0, 0}}
+	fmt.Println(minCostConnectPoints(params))
+}
 func generateListNode(nums []int) *ListNode {
 	root := &ListNode{nums[0], new(ListNode)}
 	node := root.Next
