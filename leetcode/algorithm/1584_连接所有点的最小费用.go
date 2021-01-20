@@ -9,7 +9,7 @@ import (
 // 曼哈顿距离 ：|xi - xj| + |yi - yj| ，其中 |val| 表示 val 的绝对值。
 //请你返回将所有点连接的最小总费用。只有任意两点之间 有且仅有 一条简单路径时，才认为所有点都已连接。
 func minCostConnectPoints(points [][]int) int {
-	// 计算任意两点间距离判断最小生成树?
+	// 计算任意两点间距离判断最小生成树?prime算法和Kruskal算法
 	if len(points) < 1 {
 		return 0
 	}

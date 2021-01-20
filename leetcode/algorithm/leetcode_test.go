@@ -318,6 +318,12 @@ func Test54spiralOrder(t *testing.T) {
 	}
 	spiralOrder(params)
 }
+func Test59generateMatrix(t *testing.T) {
+	res := generateMatrix(1)
+	for i := range res {
+		fmt.Println(res[i])
+	}
+}
 func Test60GetPermutation(t *testing.T) {
 	fmt.Println(getPermutation(4, 8))
 }
