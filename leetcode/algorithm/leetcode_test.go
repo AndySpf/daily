@@ -641,6 +641,9 @@ func Test1356sortByBits(t *testing.T) {
 func Test1370sortString(t *testing.T) {
 	fmt.Println(sortString("gggggg"))
 }
+func Test1579maxNumEdgesToRemove(t *testing.T) {
+	fmt.Println(maxNumEdgesToRemove(4, [][]int{{3, 1, 2}, {3, 2, 3}, {1, 1, 3}, {1, 2, 4}, {1, 1, 2}, {2, 3, 4}}))
+}
 func Test1584minCostConnectPoints(t *testing.T) {
 	params := [][]int{{0, 0}}
 	fmt.Println(minCostConnectPoints(params))
