@@ -648,6 +648,9 @@ func Test1584minCostConnectPoints(t *testing.T) {
 	params := [][]int{{0, 0}}
 	fmt.Println(minCostConnectPoints(params))
 }
+func Test1631minimumEffortPath(t *testing.T) {
+	fmt.Println(minimumEffortPath([][]int{{1, 2, 2}, {3, 8, 2}, {5, 3, 5}}))
+}
 func generateListNode(nums []int) *ListNode {
 	root := &ListNode{nums[0], new(ListNode)}
 	node := root.Next

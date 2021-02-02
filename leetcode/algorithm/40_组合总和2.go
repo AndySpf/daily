@@ -48,12 +48,11 @@ func backCombinationSum2(index int, item []int) {
 	}
 }
 
-func sumInt(data []int) int {
-	var res int
+func sumInt(data []int) (res int) {
 	for i := range data {
 		res += data[i]
 	}
-	return res
+	return
 }
 
 func combinationSumDump(source []int) []combinationSum2S {
