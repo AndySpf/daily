@@ -20,9 +20,8 @@ func characterReplacement(s string, k int) int {
 			left++
 		}
 
-		// 如果到边界，则右边不移动
 		right++
-		if right < len(s) {
+		if right < len(s) { // 如果到边界，则不处理右边界的nums
 			nums[s[right]-'A']++
 			if nums[s[right]-'A'] > nums[maxIndex] {
 				maxIndex = s[right] - 'A'
