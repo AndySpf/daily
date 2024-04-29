@@ -531,7 +531,7 @@ func Test452findMinArrowShots(t *testing.T) {
 	}))
 }
 func Test480medianSlidingWindow(t *testing.T) {
-	fmt.Println(medianSlidingWindow([]int{1, 2, 3, 4, 2, 3, 1, 4, 2}, 3))
+	//fmt.Println(medianSlidingWindow([]int{1, 2, 3, 4, 2, 3, 1, 4, 2}, 3))
 }
 func Test486PredictTheWinner(t *testing.T) {
 	params := [][]int{
