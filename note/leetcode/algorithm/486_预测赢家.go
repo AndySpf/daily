@@ -2,15 +2,15 @@ package algorithm
 
 // 递归有点没理解正确没搞出来
 func PredictTheWinner(nums []int) bool {
-	return total(nums, 0, len(nums)-1, 1) >= 0
+	return totalScore(nums, 0, len(nums)-1, 1) >= 0
 }
 
-func total(nums []int, start, end int, turn int) int {
+func totalScore(nums []int, start, end int, turn int) int {
 	if start == end {
 		return nums[start] * turn
 	}
-	scoreStart := nums[start]*turn + total(nums, start+1, end, -turn)
-	scoreEnd := nums[end]*turn + total(nums, start, end-1, -turn)
+	scoreStart := nums[start]*turn + totalScore(nums, start+1, end, -turn)
+	scoreEnd := nums[end]*turn + totalScore(nums, start, end-1, -turn)
 	return maxScore(scoreStart*turn, scoreEnd*turn) * turn
 }
 
